@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Default title{% endblock title %}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Honk&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Single+Day&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static "css/mainstyles.css" %}"></linkrel>
+</head>
+<body>
+    <header>
+        <div class="logo">61</div>
+        <div class="navigation">
+            <ul>
+                <li><a href="/">home</a></li>
+                <li><a href="/contact">contact</a></li>
+            </ul>
+        </div>
+    </header>
+    <div class="content">
+        {% block content %}{% endblock content %}
+    </div>
+    <div class="corporation">
+        LinCorp.2024. All rights reserved..
+    </div>
+</body>
+</html>
