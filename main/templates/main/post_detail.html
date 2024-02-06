@@ -1,10 +1,10 @@
 {% extends "base.html" %}
+{% block title %}{{ object.title }}{% endblock title %}
 {% block content %}
   <article class="media content-section">
     <div class="media-body">
       <div class="article-metadata">
-        <a class="mr-2" href="#">{{ object.author }}</a>
-        <small class="text-muted">{{ object.date_posted|date:"F d, Y" }}</small>
+        <small class="text-muted float-left">{{ object.date_posted|date:"F d, Y" }}</small>
         {% if object.author == user %}
           <div>
             <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'post-update' object.id %}">Редактировать</a>
@@ -12,8 +12,13 @@
           </div>
         {% endif %}
       </div>
-      <h2 class="article-title">{{ object.title }}</h2>
-      <p class="article-content">{{ object.content }}</p>
+      <div class="card mx-auto" style="width: 60%;">
+        <img src="{{ object.image.url }}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h2 class="card-title">{{ object.title }}</h2>
+          <p class="card-text">{{ object.full_text }}</p>
+        </div>
+      </div>
     </div>
   </article>
 {% endblock content %}
